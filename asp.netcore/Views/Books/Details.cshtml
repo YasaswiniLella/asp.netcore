@@ -1,0 +1,52 @@
+﻿@model asp.netcore.Models.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row ml-5">
+    <div class="col-md-6">
+
+        <h1>Details</h1>
+        @if (Model != null)
+        {
+
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td>Book Name</td>
+                    <td>@Model.BookName</td>
+                </tr>
+                <tr>
+                    <td>Author Name</td>
+                    <td>@Model.Author</td>
+                </tr>
+                <tr>
+                    <td>ISBN</td>
+                    <td>@Model.ISBN</td>
+                </tr>
+                <tr>
+                    <td>Published Date</td>
+                    <td>@Model.PublishedDate</td>
+                </tr>
+                <tr>
+                    <td>Genre</td>
+                    <td>@Model.Genre</td>
+                </tr>
+            </table>
+
+        }
+        else
+        {
+            <h2>No books available</h2>
+        }
+    </div>
+</div>
+<a asp-action="Edit" asp-route-id="@Model.Id" asp-controller="Books" class="btn btn-secondary ml-2" style="display:inline-block">Edit</a>
+<form asp-action="Delete" asp-route-id="@Model.Id" asp-controller="Books" method="post" style="display:inline-block">
+    <br />
+    <button formmethod="post" class="btn btn-secondary">Delete</button>
+
+</form>
+
+
