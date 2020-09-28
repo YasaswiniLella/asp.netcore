@@ -62,6 +62,10 @@ namespace asp.netcore.Controllers
             _bookRepos.Delete(id);
             return RedirectToAction("Index", "Books");
         }
+        public IActionResult newaction()
+        {
+            return View();
+        }
 
     }
 }
